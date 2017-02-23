@@ -1,19 +1,12 @@
 module Bob exposing (hey)
 
 import String exposing (..)
-import Regex exposing (..)
 
 
 isYelling : String -> Bool
 isYelling sentence =
-    toUpper sentence
-        == sentence
-        && containsCapitalLetters sentence
-
-
-containsCapitalLetters : String -> Bool
-containsCapitalLetters sentence =
-    Regex.contains (regex "[A-Z]") sentence
+    (toUpper sentence == sentence)
+        && (toLower sentence /= sentence)
 
 
 isQuestion : String -> Bool
